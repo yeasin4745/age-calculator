@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css">
+  <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FF33FF17;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+      
+  #calculate{
+      -webkit-box-reflect: below 1px linear-gradient( transparent ,#1D0C8C);
+      box-shadow:0 0 5px #16DC5C,
+      0 0 15px #16DC5C,
+      0 0 30px #16DC5C;
+      
+      
+      
+  }
+      
+  </style>
+ 
+
+</head>
+<body>
+    <div class="container">
+        <h1>Age Calculator</h1>
+        <label for="dob">Enter your Date of Birth:</label>
+        <input type="date" id="dob">
+        <button id="calculate">Calculate Age</button>
+        <p id="result"></p>
+    </div>
+    <script>
+  document.getElementById('calculate').addEventListener('click', function () {
+    const dob = document.getElementById('dob').value;
+    const result = document.getElementById('result');
+
+    if (dob) {
+        const dobDate = new Date(dob);
+        const today = new Date();
+        
+        let ageYears = today.getFullYear() - dobDate.getFullYear();
+        let ageMonths = today.getMonth() - dobDate.getMonth();
+        let ageDays = today.getDate() - dobDate.getDate();
+
+        if (ageDays < 0) {
+            ageMonths--;
+            ageDays += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+        }
+
+        if (ageMonths < 0) {
+            ageYears--;
+            ageMonths += 12;
+        }
+
+        result.textContent = `You are ${ageYears} years, ${ageMonths} months, and ${ageDays} days old.`;
+    } else {
+        result.textContent = "Please enter your date of birth.";
+    }
+});      
+        
+        
+        
+    </script>
+</body>
+</html>
