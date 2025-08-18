@@ -90,6 +90,8 @@ button:hover {
         <p id="result"></p>
     </div>
     <script>
+         document.getElementById('dob').max=new Date().toISOString().split('T')[0]
+        
   document.getElementById('calculate').addEventListener('click', function () {
     const dob = document.getElementById('dob').value;
     const result = document.getElementById('result');
