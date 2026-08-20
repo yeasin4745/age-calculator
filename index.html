@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,9 +19,18 @@
         </div>
 
         <div class="input-section">
-            <label for="dob">Enter Your Date of Birth:</label>
-            <input type="date" id="dob" class="date-input" placeholder="Select your birth date">
-            <span class="error-message" id="errorMessage"></span>
+            <label>Enter Your Date and Time of Birth:</label>
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="dob">Birth Date</label>
+                    <input type="date" id="dob" class="date-input" aria-label="Birth date">
+                </div>
+                <div class="input-group">
+                    <label for="birthTime">Birth Time</label>
+                    <input type="time" id="birthTime" class="time-input" step="1" value="00:00:00" aria-label="Birth time">
+                </div>
+            </div>
+            <span class="error-message" id="errorMessage" aria-live="polite"></span>
         </div>
 
         <button id="calculate" class="calculate-btn">Calculate Age</button>
@@ -45,7 +53,13 @@
                     <div class="result-label">Total Minutes</div>
                     <div class="result-value" id="totalMinutes">-</div>
                 </div>
+                <div class="result-item">
+                    <div class="result-label">Total Seconds</div>
+                    <div class="result-value" id="totalSeconds">-</div>
+                </div>
             </div>
+
+            <div class="live-status" id="liveStatus" aria-live="polite">Live updates are active</div>
 
             <div class="birthday-section">
                 <div class="birthday-card">
